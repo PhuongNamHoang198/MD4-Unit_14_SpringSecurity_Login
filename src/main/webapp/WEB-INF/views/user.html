@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html"; >
+    <title>Spring Security Example</title>
+</head>
+<body>
+<h2>Spring security example</h2>
+<hr>
+<hr>
+<h3> user dashboard</h3>
+<div sec:authorize="isAuthenticated()">
+<!--    // authorize dung de kiem tra xem user co quyen truy cap hay khong-->
+<!--    // authentication dung de lay thong tin cua user-->
+<!--    // principal.username dung de lay username cua user-->
+<!--    // isAuthenticated() dung de kiem tra xem user co dang nhap hay khong-->
+    <b> welcome <span sec:authentication="principal.username"></span></b>
+</div>
+<br>
+<div sec:authorize="isAuthenticated()">
+    <a th:href="@{/}">home</a> | <a th:href="@{/logout}">logout</a>
+</div>
+</body>
+</html>
